@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/style.css">
+    <title>OriTeddies</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-secondary text-light">
+        <div class="py-2">
+            <div class="row">
+                <p class="col-12 col-md-3 h1 d-flex align-items-center">OriTeddies</p>
+                <form class="col-12 col-md-5 d-flex align-items-center justify-content-center form_recherche">
+                    <input type="text" placeholder="Ex : Ours en peluche bleu" id="barre_recherche">
+                    <input type="button" value="Rechercher" name="Rechercher" id="bouton_rechercher">
+                </form>
+                <nav class="col-12 col-md-4 d-flex align-items-center justify-content-center">
+                    <ul class="list-inline ">
+                        <li class="list-inline-item align-middle active"><a href="index.html">Accueil</a></li>
+                        <li class="list-inline-item align-middle"><a href="panier.html">Mon panier</a></li>
+                        <li class="list-inline-item align-middle"><a href="#">Mon compte</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="temps-paris"></div>
+        <div id="price"></div>
+        <section class="container-fluid ">
+            <div class="row ">
+                <aside class="col-12 col-md-3 bg-light" id="RechercherV3">
+                    <div>
+                        <p class="text-center">Filtres</p>
+                        <form method="post" class="form_filtre">
+                            <p>
+                                Tranche de prix :<br />
+                                <input type="checkbox" name="première-tranche" id="première-tranche" /> <label for="première-tranche">0 &euro; - 10 &euro;</label><br />
+                                <input type="checkbox" name="deuxieme-tranche" id="deuxieme-tranche" /> <label for="deuxieme-tranche">11 &euro; - 20 &euro;</label><br />
+                                <input type="checkbox" name="troisieme-tranche" id="troisieme-tranche" /> <label for="troisieme-tranche">21 &euro; - 30 &euro;</label><br />
+                                <input type="checkbox" name="quatrieme-tranche" id="quatrieme-tranche" /> <label for="quatrieme-tranche">31 &euro; - 40 &euro;</label>
+                            </p>
+                        </form>
+                        <form method="post" class="form_filtre">
+                            <p>
+                                Couleur :<br />
+                                <input type="checkbox" name="Blanc" id="Blanc" /> <label for="Blanc">Blanc</label><br />
+                                <input type="checkbox" name="Noir" id="Noir" /> <label for="Noir">Noir</label><br />
+                                <input type="checkbox" name="Bleu" id="Bleu" /> <label for="Bleu">Bleu</label><br />
+                                <input type="checkbox" name="Rouge" id="Rouge" /> <label for="Rouge">Rouge</label><br>
+                                <input type="checkbox" name="Orange" id="Orange" /> <label for="Orange">Orange</label><br>
+                                <input type="checkbox" name="Vert" id="Vert" /> <label for="Vert">Vert</label><br>
+                            </p>
+                        </form>
+                    </div>
+                </aside>
+                <article class="col-12 col-md-9">
+                    <p class="row h3 justify-content-center"><u>Ours en peluche</u></p>
+                    <div class="figure_ourson row">
+                        <a href="#" class="col-12 col-md-6 my-3">
+                            <figure class="figure">
+                                <img src="images/img-teddies-resized/teddy_1.jpg " alt=" " class="figure-img img-fluid ">
+                                <figcaption class="figure-caption text-dark">
+                                    <p>Petit ours brun</p>
+                                    <p>25e</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a href="#2" class="col-12 col-md-6 my-3">
+                            <figure class="figure">
+                                <img src="images/img-teddies-resized/teddy_2.jpg " alt=" " class="figure-img img-fluid ">
+                                <figcaption class="figure-caption text-dark">
+                                    <p>Petit ours brun</p>
+                                    <p>25e</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a href="#" class="col-12 col-md-6 my-3">
+                            <figure class="figure">
+                                <img src="images/img-teddies-resized/teddy_3.jpg " alt=" " class="figure-img img-fluid ">
+                                <figcaption class="figure-caption text-dark">
+                                    <p>Petit ours brun</p>
+                                    <p>25e</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a href="#" class="col-12 col-md-6 my-3">
+                            <figure class="figure">
+                                <img src="images/img-teddies-resized/teddy_4.jpg " alt=" " class="figure-img img-fluid ">
+                                <figcaption class="figure-caption text-dark">
+                                    <p>Petit ours brun</p>
+                                    <p>25e</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a href="#" class="col-12 col-md-6 my-3">
+                            <figure class="figure">
+                                <img src="images/img-teddies-resized/teddy_5.jpg " alt=" " class="figure-img img-fluid ">
+                                <figcaption class="figure-caption text-dark">
+                                    <p>Petit ours brun</p>
+                                    <p>25e</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+
+                    </div>
+                    <p class="row justify-content-center">Page 1 sur 1</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="container-fluid bg-secondary text-light pt-4 pb-1">
+
+        <div class="row">
+            <div class="col-12 col-md-4 text-center">
+                <h5><u>Besoin d'aide ?</u></h5>
+                <ul class="list-unstyled">
+                    <li>Contactez-nous</li>
+                    <li>Questions fréquentes</li>
+                    <li>Conditions de livraison</li>
+                </ul>
+
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <h5><u>A propos d'Orinoco</u></h5>
+                <ul class="list-unstyled">
+                    <li>Qui sommes-nous ?</li>
+                    <li>Nos engagements</li>
+                    <li>Nos services</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <h5><u>Informations légales</u></h5>
+                <ul class="list-unstyled">
+                    <li>Mentions légales</li>
+                    <li>Nos conditions de vente</li>
+                    <li>Données personnelles</li>
+                    <li>Echange ou remboursement</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </footer>
+
+
+
+
+    <script src="test.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js " integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js " integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf " crossorigin="anonymous "></script>
+
+</body>
+
+</html>
