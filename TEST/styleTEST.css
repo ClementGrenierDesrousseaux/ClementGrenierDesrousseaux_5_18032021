@@ -1,0 +1,16 @@
+figure {
+    width: 200px;
+    height: 400px;
+}
+
+figure img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+figure figcaption {
+    width: 200px;
+    height: 200px;
+}

@@ -10,7 +10,7 @@ request.onload = function() {
         var imageTeddies = response[i].imageUrl;
         document.getElementById("nom_teddy" + i).appendChild(nameTeddies);
         document.getElementById("prix_teddy" + i).appendChild(priceTeddies);
-        document.getElementById("image_teddy" + i).setAttribute("src", imageTeddies);
+        document.getElementById("img_teddy" + i).setAttribute("src", imageTeddies);
 
 
     }
