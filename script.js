@@ -8,9 +8,11 @@ request.onload = function() {
         var nameTeddies = document.createTextNode(response[i].name);
         var priceTeddies = document.createTextNode(response[i].price + " euros");
         var imageTeddies = response[i].imageUrl;
+        var urlProduitTeddies = "produit.html/?id=" + response[i]._id;
         document.getElementById("nom_teddy" + i).appendChild(nameTeddies);
         document.getElementById("prix_teddy" + i).appendChild(priceTeddies);
         document.getElementById("image_teddy" + i).setAttribute("src", imageTeddies);
+        document.getElementById("teddy" + i).setAttribute("href", urlProduitTeddies);
 
 
     }
