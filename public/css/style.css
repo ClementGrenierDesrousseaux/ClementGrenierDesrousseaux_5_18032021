@@ -24,19 +24,20 @@ body {
   padding: 0;
 }
 
-figure {
+.figure_teddy {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 400px;
 }
-figure img {
+.figure_teddy img {
   height: 300px;
   width: 100%;
   object-fit: cover;
 }
-figure figcaption {
+.figure_teddy figcaption {
   display: flex;
   justify-content: space-between;
 }

@@ -12,8 +12,5 @@ request.onload = function() {
         document.getElementById("nom_teddy" + i).appendChild(nameTeddies);
         document.getElementById("prix_teddy" + i).appendChild(priceTeddies);
         document.getElementById("image_teddy" + i).setAttribute("src", imageTeddies);
-        document.getElementById("teddy" + i).setAttribute("href", urlProduitTeddies);
-
-
     }
 }
