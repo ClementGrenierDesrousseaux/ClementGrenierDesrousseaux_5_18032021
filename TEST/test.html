@@ -1,65 +1,56 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleTEST.css">
-    <title>Page de test</title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("language", "1");
+
+        function translate(lang) {
+            var text = document.getElementById("text").innerHTML; //on récupère le texte d'origine
+            var org = document.getElementById("lang_origin").value; // on récupère la langue d'origine
+            var trans = document.getElementById("translation"); // Nom de la div où afficher le texte
+            if (lang == org) // Si te texte choisis est le même que celui d'origine
+            {
+                trans.innerHTML = text; //aucune modification
+            } else //Sinon on le traduit
+            {
+                google.language.translate(text, org, lang, function(result) { //tiré de l'API Google translate
+                    if (!result.error) {
+                        trans.innerHTML = result.translation;
+                    }
+                });
+            }
+        }
+
+        function chargertxt() //On affiche le texte dans sa langue d'origine au chargement de la page
+        {
+            document.getElementById('translation').innerHTML = document.getElementById('text').innerHTML;
+        }
+    </script>
+    <style type="text/css">
+        <!-- On n'affiche pas le texte d'origine étant donné qu'il seras affiché dans le div translation-->
+ #text {
+            display: none;
+        }
+    </style>
 </head>
 
-<body>
-    <a href="../index.html">RETOUR ACCUEIL</a>
-    <button id="bouton">Ajouter prénom</button>
-    <main>
-        <section>
-            <article>
-                <figure>
-                    <img src="" alt="" id="img_teddy0">
-                    <figcaption id="figcap_teddy0">
-                        <p id="nom_teddy0"></p>
-                        <p id="prix_teddy0"></p>
-
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="" alt="" id="img_teddy1">
-                    <figcaption id="figcap_teddy1">
-                        <p id="nom_teddy1"></p>
-                        <p id="prix_teddy1"></p>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="" alt="" id="img_teddy2">
-                    <figcaption id="figcap_teddy2">
-                        <p id="nom_teddy2"></p>
-                        <p id="prix_teddy2"></p>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="" alt="" id="img_teddy3">
-                    <figcaption id="figcap_teddy3">
-                        <p id="nom_teddy3"></p>
-                        <p id="prix_teddy3"></p>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="" alt="" id="img_teddy4">
-                    <figcaption id="figcap_teddy4">
-                        <p id="nom_teddy4"></p>
-                        <p id="prix_teddy4"></p>
-                    </figcaption>
-                </figure>
-            </article>
-        </section>
-    </main>
-
-
-
-
-
-    <script src="test.js"></script>
+<body onload="chargertxt();">
+    <form action="#" method="post">
+        <select onchange="translate(this.value)"> <!-- Choix des langue, bien sur, ou peu faire la même chose en mettant des liens(avec les drapeaux des pays par exemple) -->
+				<option value="fr">Francais</option>
+				<option value="en">English</option>
+				<option value="es">Español</option>
+				<option value="el">Greek</option>
+				<option value="de">German</option>
+			</select>
+        <input type="hidden" id="lang_origin" value="fr" />
+    </form>
+    <div id="text">Ici, vous mettez votre texte.</div>
+    <!-- on écrit le texte d'origine, normalement, les balises HTML sont prisent en compte par l'API google, donc aucun problème pour mettre des liens ou des images -->
+    <div id="translation"></div>
+    <!-- C'est le div qui sera affiché à l'écran -->
 </body>
-
 
 </html>

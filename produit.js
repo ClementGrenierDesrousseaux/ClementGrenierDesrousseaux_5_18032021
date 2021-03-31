@@ -19,36 +19,29 @@ request.onload = function() {
                 document.getElementById("image_produit").setAttribute("src", image_produit_teddy);
                 document.getElementById("desc_produit").appendChild(desc_produit_teddy);
                 var nb_colors = response[i].colors;
-                //alert(nb_colors);
                 for (let j = 0; j < nb_colors.length; j++) {
-                    var newInput = document.createElement("input");
-                    var newLabel = document.createElement("label");
-                    var newBr = document.createElement("br");
+                    var newOption = document.createElement("option");
                     var afficherCouleur = document.createTextNode(response[i].colors[j]);
-                    document.getElementById("couleur_produit").appendChild(newInput).setAttribute("id", "color" + j);
-                    document.getElementById("color" + j).setAttribute("type", "radio");
-                    document.getElementById("color" + j).setAttribute("name", "color")
-                    document.getElementById("couleur_produit").appendChild(newLabel).setAttribute("id", "label" + j);
-                    document.getElementById("label" + j).setAttribute("for", "color" + j);
-                    document.getElementById("label" + j).appendChild(afficherCouleur);
-                    document.getElementById("couleur_produit").appendChild(newBr);
-
-
-
-
+                    document.getElementById("couleur").appendChild(newOption).setAttribute("id", "color" + j);
+                    document.getElementById("color" + j).appendChild(afficherCouleur);
                 }
-
-
-
-
-
-
-
-
-
-
-
             }
         }
+    }
+}
+
+document.getElementById("btn_ajout_panier").onclick = function() {
+    var newTr = document.createElement("tr");
+    var newTd = document.createElement("td");
+    var panierName = document.getElementById("nom_produit").textContent;
+    var panierPrice = document.getElementById("prix_produit").textContent;
+    var l = 0
+    for (let k = 0; k < l; k++) {
+        l++;
+        document.getElementById("table").appendChild(newTr).setAttribute("id", "produit" + k);
+        document.getElementById("produit" + k).appendChild(newTd).setAttribute("id", "nom" + k);
+        document.getElementById("produit" + k).appendChild(newTd).setAttribute("id", "prix" + k);
+        document.getElementById("nom" + k).appendChild(panierName);
+        document.getElementById("nom" + k).appendChild(panierPrice);
     }
 }

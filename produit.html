@@ -35,22 +35,24 @@
         <section class="container-fluid" id="section_accueil">
             <div class="row ">
                 <article>
-
                     <figure class="figure_produit row">
                         <img src="" alt=" " class="figure-img col-8" id="image_produit">
                         <figcaption class="figure-caption text-dark col-4">
                             <p id="nom_produit"></p>
                             <p id="prix_produit"></p>
                             <form method="post">
-                                <p id="couleur_produit">
-
+                                <p>
+                                    <label for="couleur">Choissisez une couleur :</label><br>
+                                    <select name="couleur" id="couleur">
+                                        
+                                    </select>
                                 </p>
                             </form>
                             <p id="desc_produit"></p>
 
                         </figcaption>
                     </figure>
-
+                    <button id="btn_ajout_panier">Ajouter au panier</button>
                 </article>
             </div>
         </section>
