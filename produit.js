@@ -30,7 +30,7 @@ request.onload = function() {
     }
 }
 
-document.getElementById("btn_ajout_panier").onclick = function() {
+/*document.getElementById("btn_ajout_panier").onclick = function() {
     var newTr = document.createElement("tr");
     var newTd = document.createElement("td");
     var panierName = document.getElementById("nom_produit").textContent;
@@ -44,4 +44,4 @@ document.getElementById("btn_ajout_panier").onclick = function() {
         document.getElementById("nom" + k).appendChild(panierName);
         document.getElementById("nom" + k).appendChild(panierPrice);
     }
-}
+}*/
