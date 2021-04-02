@@ -28,6 +28,7 @@ fetch("http://localhost:3000/api/teddies/" + idTeddy) //Permet d'afficher les in
             document.getElementById("prix_produit").appendChild(prix_produit_teddy);
             document.getElementById("image_produit").setAttribute("src", image_produit_teddy);
             document.getElementById("desc_produit").appendChild(desc_produit_teddy);
+
             var nb_colors = myJSON.colors;
             for (let j = 0; j < nb_colors.length; j++) { //Affiche le nombre de couleurs selon l'API
                 var newOption = document.createElement("option");
@@ -41,6 +42,26 @@ fetch("http://localhost:3000/api/teddies/" + idTeddy) //Permet d'afficher les in
 
 
 //Récupération de la couleur choisie
-document.getElementById("couleur").onclick = function() {
-    console.log(this.selecterIndex);
+/*document.getElementById("couleur").onclick = function() {
+    console.log(document.getElementById("couleur").value);
+}*/
+var nbClick = 1;
+document.getElementById("btn_ajout_panier").onclick = function() {
+    nbClick++;
+    console.log(nbClick);
+    fetch("http://localhost:3000/api/teddies/" + idTeddy)
+        .then(function(response) {
+            var myJSON_promise = response.json();
+            myJSON_promise.then(function(myJSON) {
+                for (let i = 0; i < nbClick; i++) {
+                    var panier = new Object();
+                    panier.nom = myJSON.name;
+                    panier.prix = myJSON.price;
+                    console.log(panier);
+                    let panierString = JSON.stringify(panier);
+                    localStorage.setItem("panier", panierString);
+                    console.log(panier)
+                }
+            })
+        })
 }
