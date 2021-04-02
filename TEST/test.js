@@ -15,11 +15,6 @@ request.onload = function() {
 }*/
 
 
-
-
-
-
-
 /*fetch("http://localhost:3000/api/teddies")
     .then(response => response.json())
     .then(response => document.getElementById("nom_teddy0").innerHTML = response[0].name)
@@ -73,33 +68,44 @@ for (let i = 0; i < 4; i++) {
     console.log(panier[i]);
 }*/
 
-var tab = ["foo", "bar"]
+
+//ECHEC
+/*var tab = ["foo", "bar"]
 var len = tab.length;
 var mesObjets = new Array();
 
-var monObjet = function(titi) {
-    this.mavariable = titi;
-    //this.verif = function() {
-    //    console.log(this.mavariable);
-    //}
+var monObjet = function() {
+    for (i = 0; i < 2; i++) {
+        mesObjets.push(new monObjet(tab[i]));
+    }
+}
+console.log(mesObjets);*/
+
+
+
+document.getElementById("clearLocalStorage").onclick = function() {
+    localStorage.clear();
 }
 
-//exemple en ddehors d'une boucle
-//mesObjets.push(new monObjet('toto'));
-//mesObjets.push(new monObjet('titi'));
+document.getElementById("ajouterPanier").onclick = function() {
+    nbclick = ["0"];
+    var len = nbclick.length;
+    class article {
+        constructor(name, price) {
+            this.name = name;
+            this.price = price
+        }
+    }
 
-//mesObjets[0].verif();
-
-//à l'intérieur d'une boucle
-
-for (i = 0; i < 2; i++) {
-    mesObjets.push(new monObjet(tab[i]));
+    for (let i = 0; i < nbclick.length; i++) {
+        nbclick.push(i);
+        var name = document.getElementById("nom" + i).textContent;
+        var prix = document.getElementById("prix" + i).textContent;
+        let monArticle = new article(name, prix);
+        console.log(monArticle);
+        let monArticleString = JSON.stringify(monArticle);
+        localStorage.setItem("article" + i, monArticleString);
+        let nbclickString = JSON.stringify(nbclick);
+        localStorage.setItem("NombreClick", nbclickString);
+    }
 }
-
-//for (i = 2; i < 4; i++) {
-//    mesObjets[i].verif();
-//}
-
-console.log(mesObjets)
-let panierString = JSON.stringify(mesObjets);
-localStorage.setItem("panier", panierString);

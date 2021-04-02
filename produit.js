@@ -53,15 +53,15 @@ document.getElementById("btn_ajout_panier").onclick = function() {
         .then(function(response) {
             var myJSON_promise = response.json();
             myJSON_promise.then(function(myJSON) {
-                for (let i = 0; i < nbClick; i++) {
-                    var panier = new Object();
-                    panier.nom = myJSON.name;
-                    panier.prix = myJSON.price;
-                    console.log(panier);
-                    let panierString = JSON.stringify(panier);
-                    localStorage.setItem("panier", panierString);
-                    console.log(panier)
-                }
+                //for (let i = 0; i < nbClick; i++) {
+                var panier = new Object();
+                panier.nom = myJSON.name;
+                panier.prix = myJSON.price;
+                console.log(panier);
+                let panierString = JSON.stringify(panier);
+                localStorage.setItem("panier", panierString);
+                console.log(panier)
+                    //}
             })
         })
 }
