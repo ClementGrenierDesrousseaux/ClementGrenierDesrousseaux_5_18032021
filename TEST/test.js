@@ -109,3 +109,5 @@ document.getElementById("ajouterPanier").onclick = function() {
         localStorage.setItem("NombreClick", nbclickString);
     }
 }
+
+console.log(localStorage.length);

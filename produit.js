@@ -45,23 +45,68 @@ fetch("http://localhost:3000/api/teddies/" + idTeddy) //Permet d'afficher les in
 /*document.getElementById("couleur").onclick = function() {
     console.log(document.getElementById("couleur").value);
 }*/
-var nbClick = 1;
+
+
+
+
+
+
+
+
+
+//Ajout dans le panier sans gérer la quantité
+
 document.getElementById("btn_ajout_panier").onclick = function() {
-    nbClick++;
-    console.log(nbClick);
     fetch("http://localhost:3000/api/teddies/" + idTeddy)
         .then(function(response) {
             var myJSON_promise = response.json();
             myJSON_promise.then(function(myJSON) {
-                //for (let i = 0; i < nbClick; i++) {
-                var panier = new Object();
+                var numPanier = localStorage.length + 1; //création num du panier
+
+                var panier = new Object(); //création objet
                 panier.nom = myJSON.name;
                 panier.prix = myJSON.price;
-                console.log(panier);
-                let panierString = JSON.stringify(panier);
-                localStorage.setItem("panier", panierString);
-                console.log(panier)
-                    //}
+                panier.id = myJSON._id;
+                panier.quantité = 1;
+
+
+                let panierString = JSON.stringify(panier); //le panier passe en JSON
+                localStorage.setItem("panier" + numPanier, panierString); //on enregistre le panier dans local storage
             })
         })
 }
+
+
+
+//ajout dans le panier avec gestion de la quantité
+/*document.getElementById("btn_ajout_panier").onclick = function() {
+    fetch("http://localhost:3000/api/teddies/" + idTeddy)
+        .then(function(response) {
+            var myJSON_promise = response.json();
+            myJSON_promise.then(function(myJSON) {
+                var numPanier = localStorage.length + 1; //création num du panier
+                var panier = new Object(); //création objet
+                panier.nom = myJSON.name;
+                panier.prix = myJSON.price;
+                panier.id = myJSON._id;
+                panier.quantité = 1;
+
+                for (let i = 0; i <= localStorage.length; i++) {
+                    if (JSON.stringify(panier) === localStorage.getItem("panier" + i)) {
+                        var monPanierJSON = localStorage.getItem("panier" + i);
+                        var monPanier = JSON.parse(monPanierJSON);
+                        panier.quantité = 3;
+                        let panierString = JSON.stringify(panier); //le panier passe en JSON
+                        localStorage.setItem("panier" + numPanier, panierString); //on enregistre le panier dans local storage
+
+                    } else {
+                        let panierString = JSON.stringify(panier); //le panier passe en JSON
+                        localStorage.setItem("panier" + numPanier, panierString); //on enregistre le panier dans local storage
+                    }
+
+                }
+
+
+            })
+        })
+}*/
