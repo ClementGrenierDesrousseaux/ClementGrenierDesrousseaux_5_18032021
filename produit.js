@@ -34,79 +34,60 @@ fetch("http://localhost:3000/api/teddies/" + idTeddy) //Permet d'afficher les in
                 var newOption = document.createElement("option");
                 var afficherCouleur = document.createTextNode(myJSON.colors[j]);
                 document.getElementById("couleur").appendChild(newOption).setAttribute("id", "color" + j);
+                document.getElementById("color" + j).setAttribute("value", j + 1)
                 document.getElementById("color" + j).appendChild(afficherCouleur);
             }
+
 
         })
     })
 
 
-//Récupération de la couleur choisie
-/*document.getElementById("couleur").onclick = function() {
-    console.log(document.getElementById("couleur").value);
-}*/
+var selectElem = document.getElementById('couleur');
+selectElem.addEventListener('change', function() {
+    var index = selectElem.selectedIndex;
+    console.log(index)
+    test.push(1);
+})
 
 
 
-
-
-
-
-
-
-//Ajout dans le panier sans gérer la quantité
-
+document.getElementById("effacerLocalStorage").onclick = function() {
+    localStorage.clear();
+}
 document.getElementById("btn_ajout_panier").onclick = function() {
     fetch("http://localhost:3000/api/teddies/" + idTeddy)
         .then(function(response) {
             var myJSON_promise = response.json();
             myJSON_promise.then(function(myJSON) {
-                var numPanier = localStorage.length + 1; //création num du panier
-
-                var panier = new Object(); //création objet
-                panier.nom = myJSON.name;
-                panier.prix = myJSON.price;
-                panier.id = myJSON._id;
-                panier.quantité = 1;
-
-
-                let panierString = JSON.stringify(panier); //le panier passe en JSON
-                localStorage.setItem("panier" + numPanier, panierString); //on enregistre le panier dans local storage
-            })
-        })
-}
-
-
-
-//ajout dans le panier avec gestion de la quantité
-/*document.getElementById("btn_ajout_panier").onclick = function() {
-    fetch("http://localhost:3000/api/teddies/" + idTeddy)
-        .then(function(response) {
-            var myJSON_promise = response.json();
-            myJSON_promise.then(function(myJSON) {
-                var numPanier = localStorage.length + 1; //création num du panier
-                var panier = new Object(); //création objet
-                panier.nom = myJSON.name;
-                panier.prix = myJSON.price;
-                panier.id = myJSON._id;
-                panier.quantité = 1;
-
-                for (let i = 0; i <= localStorage.length; i++) {
-                    if (JSON.stringify(panier) === localStorage.getItem("panier" + i)) {
-                        var monPanierJSON = localStorage.getItem("panier" + i);
-                        var monPanier = JSON.parse(monPanierJSON);
-                        panier.quantité = 3;
-                        let panierString = JSON.stringify(panier); //le panier passe en JSON
-                        localStorage.setItem("panier" + numPanier, panierString); //on enregistre le panier dans local storage
-
-                    } else {
-                        let panierString = JSON.stringify(panier); //le panier passe en JSON
-                        localStorage.setItem("panier" + numPanier, panierString); //on enregistre le panier dans local storage
+                class Panier {
+                    constructor(name, price, id, color, quantity) {
+                        this.name = name;
+                        this.price = price;
+                        this.id = id;
+                        this.color = color;
+                        this.quantity = quantity;
                     }
-
                 }
 
 
+
+                var tableau = []
+                tableau = JSON.parse(localStorage.getItem("panier")) || [];
+                var nouvelArticle = new Panier(myJSON.name, myJSON.price, myJSON._id, couleur, 1);
+                var ajoutArticle = true
+
+                tableau.forEach(element => {
+                    if (element.id == nouvelArticle.id) {
+                        ajoutArticle = false;
+                        element.quantity++;
+                        localStorage.setItem("panier", JSON.stringify(tableau));
+                    }
+                });
+                if (ajoutArticle) {
+                    tableau.push(nouvelArticle);
+                    localStorage.setItem("panier", JSON.stringify(tableau));
+                }
             })
         })
-}*/
+}

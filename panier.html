@@ -4,35 +4,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/style.css">
     <title>Panier</title>
 </head>
 
 <body>
-    <table id="table">
-        <p id="nbligne"></p>
+    <a href="TEST/test.html">PAGE DE TEST</a>
+    <header class="container-fluid bg-secondary text-light">
+        <div class="py-2">
+            <div class="row">
+                <p class="col-12 col-md-3 h1 d-flex align-items-center">OriTeddies</p>
+                <form class="col-12 col-md-5 d-flex align-items-center justify-content-center form_recherche">
+                    <input type="text" placeholder="Ex : Ours en peluche bleu" id="barre_recherche">
+                    <input type="button" value="Rechercher" name="Rechercher" id="bouton_rechercher">
+                </form>
+                <nav class="col-12 col-md-4 d-flex align-items-center justify-content-center">
+                    <ul class="list-inline ">
+                        <li class="list-inline-item align-middle active"><a href="index.html">Accueil</a></li>
+                        <li class="list-inline-item align-middle"><a href="panier.html">Mon panier</a></li>
+                        <li class="list-inline-item align-middle"><a href="#">Mon compte</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="confirmation.html">Résumé de la commande</a>
+
+        <div class="row">
+            <table id="table" class="col-12">
+                <tr>
+                    <th>Article</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Prix de la ligne</th>
+                </tr>
+            </table>
+
+            <table class="col-12">
+                <tr>
+                    <th>Prix total :</th>
+                    <th id="totalPrice"></th>
+                </tr>
+            </table>
+
+        </div>
 
 
-        <tr>
-            <th>Numéro de ligne</th>
-            <th>Article</th>
-            <th>Prix</th>
-            <th>ID</th>
-            <th>Quantité</th>
-        </tr>
+
+        <div id="formulaire" class="row">
+            <form method="POST">
+                <div>
+                    <label for="name">Nom et prénom : </label> <br>
+                    <input type="text" name="user_name" id="name" required>
+                </div>
+                <div>
+                    <label for="name">Adresse e-mail : </label> <br>
+                    <input type="email" name="user_email" id="email" required>
+                </div><br>
+                <div>Adresse postale :</div> <br>
+                <div>
+                    <label for="name">Nom de ville ou code postal : </label> <br>
+                    <input type="text" name="user_postal" id="postal" required>
+                </div>
+                <div>
+                    <label for="name">Nom de la rue : </label> <br>
+                    <input type="text" name="user_street" id="street" required>
+                </div>
+                <div>
+                    <label for="name">Numéro de la rue : </label> <br>
+                    <input type="number" name="user_numStreet" id="numStreet" required>
+                </div>
+                <div>
+                    <label for="name">Complément (Interphone, étage, ...) : </label> <br>
+                    <textarea id="complement" name="user_complement"></textarea>
+                </div>
+            </form>
+        </div>
+        <button id="confirmPanier">Commander</a></button>
+
+    </main>
+
+    <footer class="container-fluid bg-secondary text-light pt-4 pb-1">
+
+        <div class="row">
+            <div class="col-12 col-md-4 text-center">
+                <h5><u>Besoin d'aide ?</u></h5>
+                <ul class="list-unstyled">
+                    <li>Contactez-nous</li>
+                    <li>Questions fréquentes</li>
+                    <li>Conditions de livraison</li>
+                </ul>
+
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <h5><u>A propos d'Orinoco</u></h5>
+                <ul class="list-unstyled">
+                    <li>Qui sommes-nous ?</li>
+                    <li>Nos engagements</li>
+                    <li>Nos services</li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <h5><u>Informations légales</u></h5>
+                <ul class="list-unstyled">
+                    <li>Mentions légales</li>
+                    <li>Nos conditions de vente</li>
+                    <li>Données personnelles</li>
+                    <li>Echange ou remboursement</li>
+                </ul>
+            </div>
+        </div>
 
 
-
-
-    </table>
-
-
-
+    </footer>
 
 
 
 
     <script src="panier.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js " integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js " integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf " crossorigin="anonymous "></script>
+
 </body>
+
+</html>
 
 </html>

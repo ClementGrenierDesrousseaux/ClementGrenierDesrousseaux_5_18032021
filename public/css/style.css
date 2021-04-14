@@ -1,90 +1,122 @@
 html {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  width: 90%;
-  margin: auto;
+    width: 90%;
+    margin: auto;
 }
 
 .form_recherche {
-  display: flex;
+    display: flex;
 }
+
 .form_recherche #barre_recherche {
-  width: 80%;
+    width: 80%;
 }
+
 .form_recherche #bouton_rechercher {
-  width: 20%;
+    width: 20%;
 }
 
 .form_filtre {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .figure_teddy {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 400px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
 }
+
 .figure_teddy img {
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
 }
+
 .figure_teddy figcaption {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .big-teddy {
-  object-position: left center;
+    object-position: left center;
 }
 
 a {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
-  color: white;
+    color: white;
 }
+
 nav a:hover {
-  color: skyblue;
+    color: skyblue;
 }
 
 table {
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 th {
-  border: 1px solid black;
+    border: 1px solid black;
 }
 
 td {
-  border: 1px solid black;
+    border: 1px solid black;
+}
+
+
+/* PANIER */
+
+
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 @media screen and (max-width: 767px) {
-  body {
-    width: 100%;
-    margin: 0;
-  }
-
-  .form_recherche {
-    display: flex;
-  }
-  .form_recherche #barre_recherche {
-    width: 60%;
-  }
-  .form_recherche #bouton_rechercher {
-    width: auto;
-  }
+    body {
+        width: 100%;
+        margin: 0;
+    }
+    .form_recherche {
+        display: flex;
+    }
+    .form_recherche #barre_recherche {
+        width: 60%;
+    }
+    .form_recherche #bouton_rechercher {
+        width: auto;
+    }
 }
+
+#formulaire input:valid {
+    background-color: rgb(119, 247, 136);
+}
+
+#formulaire input:invalid {
+    background-color: rgb(255, 109, 109);
+}
+
 
 /*# sourceMappingURL=style.css.map */
