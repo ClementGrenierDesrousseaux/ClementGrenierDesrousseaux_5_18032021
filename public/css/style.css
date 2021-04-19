@@ -110,13 +110,22 @@ input[type=number] {
     }
 }
 
-#formulaire input:valid {
+
+/*#formulaire_contact input:valid {
     background-color: rgb(119, 247, 136);
 }
 
-#formulaire input:invalid {
+#formulaire_contact input:invalid {
     background-color: rgb(255, 109, 109);
 }
+
+#formulaire_payment input:valid {
+    background-color: rgb(119, 247, 136);
+}
+
+#formulaire_payment input:invalid {
+    background-color: rgb(255, 109, 109);
+}*/
 
 
 /*# sourceMappingURL=style.css.map */

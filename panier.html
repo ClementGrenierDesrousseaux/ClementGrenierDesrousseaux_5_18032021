@@ -37,6 +37,7 @@
             <table id="table" class="col-12">
                 <tr>
                     <th>Article</th>
+                    <th>Couleur</th>
                     <th>Prix</th>
                     <th>Quantité</th>
                     <th>Prix de la ligne</th>
@@ -54,35 +55,55 @@
 
 
 
-        <div id="formulaire" class="row">
+        <div id="formulaire_contact" class="row">
             <form method="POST">
                 <div>
-                    <label for="name">Nom et prénom : </label> <br>
-                    <input type="text" name="user_name" id="name" required>
+                    <label for="lastName">Nom : </label> <br>
+                    <input type="text" name="user_lastName" id="lastName" required>
                 </div>
                 <div>
-                    <label for="name">Adresse e-mail : </label> <br>
+                    <label for="firstName">Prénom : </label> <br>
+                    <input type="text" name="user_firstName" id="firstName" required>
+                </div>
+                <div>
+                    <label for="email">Adresse e-mail : </label> <br>
                     <input type="email" name="user_email" id="email" required>
-                </div><br>
-                <div>Adresse postale :</div> <br>
-                <div>
-                    <label for="name">Nom de ville ou code postal : </label> <br>
-                    <input type="text" name="user_postal" id="postal" required>
                 </div>
                 <div>
-                    <label for="name">Nom de la rue : </label> <br>
-                    <input type="text" name="user_street" id="street" required>
+                    <label for="city">Ville : </label> <br>
+                    <input type="text" name="user_city" id="city" required>
                 </div>
                 <div>
-                    <label for="name">Numéro de la rue : </label> <br>
-                    <input type="number" name="user_numStreet" id="numStreet" required>
-                </div>
-                <div>
-                    <label for="name">Complément (Interphone, étage, ...) : </label> <br>
-                    <textarea id="complement" name="user_complement"></textarea>
+                    <label for="address">Adresse : </label> <br>
+                    <input type="text" name="user_address" id="address" required>
                 </div>
             </form>
-        </div>
+        </div> <br>
+
+        <div>Méthode de paiment : </div> <br>
+
+        <!--<div id="formulaire_payment" class="row">
+            <form method="POST">
+                <div>
+                    <label for="name_card">Nom du titulaire : </label> <br>
+                    <input type="text" name="user_name_card" id="name_card" required>
+                </div>
+                <div>
+                    <label for="num_card">Numéro de la carte : </label> <br>
+                    <input type="text" name="user_number_card" id="num_card" required minlength="16" maxlength="16">
+                </div>
+
+                <div>
+                    <label for="date_card">Date d'expiration : </label> <br>
+                    <input type="month" name="user_date_card" id="date_card" required>
+                </div>
+                <div>
+                    <label for="crypto_card">Cryptogramme : </label> <br>
+                    <input type="text" name="user_crypto_card" id="crypto_card" required minlength="3" maxlength="3" pattern="[0-9]">
+                </div>
+            </form>
+        </div> <br>-->
+
         <button id="confirmPanier">Commander</a></button>
 
     </main>
