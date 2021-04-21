@@ -12,3 +12,20 @@ fetch("http://localhost:3000/api/teddies")
             }
         });
     })
+
+var style = false;
+document.getElementById("nom_filtre").onclick = function() {
+
+    if (style === false) {
+        document.getElementById("formulaire_filtre").style.display = "block";
+        style = true;
+    }
+    if (style === true) {
+        document.getElementById("formulaire_filtre").style.display = "none";
+        style = false;
+    }
+
+
+
+
+}

@@ -66,12 +66,13 @@ document.getElementById("btn_ajout_panier").onclick = function() {
                 var myJSON_promise = response.json();
                 myJSON_promise.then(function(myJSON) {
                     class Panier {
-                        constructor(name, price, id, color, quantity) {
+                        constructor(name, price, id, color, quantity, img) {
                             this.name = name;
                             this.price = price;
                             this.id = id;
                             this.color = color;
                             this.quantity = quantity;
+                            this.img = img
                         }
                     }
 
@@ -79,7 +80,7 @@ document.getElementById("btn_ajout_panier").onclick = function() {
 
                     var tableau = []
                     tableau = JSON.parse(localStorage.getItem("panier")) || [];
-                    var nouvelArticle = new Panier(myJSON.name, myJSON.price, myJSON._id, myJSON.colors[teddyCouleur], 1);
+                    var nouvelArticle = new Panier(myJSON.name, myJSON.price, myJSON._id, myJSON.colors[teddyCouleur], 1, myJSON.imageUrl);
                     var ajoutArticle = true
 
                     tableau.forEach(element => {
