@@ -16,7 +16,7 @@ function $_GET(param) { //Permet de récupérer l'id dans l'URL
     return vars;
 }
 
-var request = fetch("http://localhost:3000/api/teddies/" + idTeddy);
+//var request = fetch("http://localhost:3000/api/teddies/" + idTeddy);
 
 fetch("http://localhost:3000/api/teddies/" + idTeddy) //Permet d'afficher les informations du teddy selon l'id de l'URL
     .then(function(response) {
@@ -32,7 +32,7 @@ fetch("http://localhost:3000/api/teddies/" + idTeddy) //Permet d'afficher les in
             document.getElementById("desc_produit").appendChild(desc_produit_teddy);
 
             var nb_colors = myJSON.colors;
-            for (let j = 0; j < nb_colors.length; j++) { //Affiche le nombre de couleurs selon l'API
+            for (let j = 0; j < nb_colors.length; j++) { //Affiche le nombre de couleurs du teddy selon l'API
                 var newOption = document.createElement("option");
                 var afficherCouleur = document.createTextNode(myJSON.colors[j]);
                 document.getElementById("couleur").appendChild(newOption).setAttribute("id", "color" + j);
@@ -43,29 +43,26 @@ fetch("http://localhost:3000/api/teddies/" + idTeddy) //Permet d'afficher les in
 
         })
     })
-
-
-var selectElem = document.getElementById('couleur');
-selectElem.addEventListener('change', function() {
-    var index = selectElem.value;
-    console.log(index)
-})
-
-
+    //TEST SUPP LOCALSTORAGE
 
 document.getElementById("effacerLocalStorage").onclick = function() {
     localStorage.clear();
 }
-document.getElementById("btn_ajout_panier").onclick = function() {
+
+//FIN TEST SUPP LOCALSTORAGE
+
+
+document.getElementById("btn_ajout_panier").onclick = function() { //Fonction d'ajout au panier au click sur le bouton
     var teddyCouleur = document.getElementById('couleur').value;
-    if (teddyCouleur == "defaut") {
+    if (teddyCouleur == "defaut") { //Si pas de couleur choisie, affiche un message
         alert("Veuillez choisir une couleur !")
     } else {
-        fetch("http://localhost:3000/api/teddies/" + idTeddy)
+        fetch("http://localhost:3000/api/teddies/" + idTeddy) //si couleur choisie, ajout du teddy dans localstorage
             .then(function(response) {
                 var myJSON_promise = response.json();
                 myJSON_promise.then(function(myJSON) {
-                    class Panier {
+
+                    /*class Panier {
                         constructor(name, price, id, color, quantity, img) {
                             this.name = name;
                             this.price = price;
@@ -74,23 +71,31 @@ document.getElementById("btn_ajout_panier").onclick = function() {
                             this.quantity = quantity;
                             this.img = img
                         }
-                    }
-
+                    }*/
 
 
                     var tableau = []
                     tableau = JSON.parse(localStorage.getItem("panier")) || [];
-                    var nouvelArticle = new Panier(myJSON.name, myJSON.price, myJSON._id, myJSON.colors[teddyCouleur], 1, myJSON.imageUrl);
+
+                    // var nouvelArticle = new Panier(myJSON.name, myJSON.price, myJSON._id, myJSON.colors[teddyCouleur], 1, myJSON.imageUrl);
+
+                    var nouvelArticle = new Object() //Création de l'objet teddy selon les paramètres du teddy de la page
+                    nouvelArticle.name = myJSON.name;
+                    nouvelArticle.price = myJSON.price;
+                    nouvelArticle.id = myJSON._id;
+                    nouvelArticle.color = myJSON.colors[teddyCouleur];
+                    nouvelArticle.quantity = 1;
+                    nouvelArticle.img = myJSON.imageUrl;
                     var ajoutArticle = true
 
-                    tableau.forEach(element => {
+                    tableau.forEach(element => { //Permet d'incrémenter la quantité du teddy si id et color sont identiques à un teddy existant
                         if (element.id == nouvelArticle.id && element.color == nouvelArticle.color) {
                             ajoutArticle = false;
                             element.quantity++;
                             localStorage.setItem("panier", JSON.stringify(tableau));
                         }
                     });
-                    if (ajoutArticle) {
+                    if (ajoutArticle) { //Si le teddy n'existe pas dans le panier, ajout du teddy dans localstorage
                         tableau.push(nouvelArticle);
                         localStorage.setItem("panier", JSON.stringify(tableau));
                     }

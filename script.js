@@ -1,8 +1,8 @@
-fetch("http://localhost:3000/api/teddies")
+fetch("http://localhost:3000/api/teddies") //Récupération des données de l'API
     .then(function(response) {
         var myJSON_promise = response.json();
         myJSON_promise.then(function(myJSON) {
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 5; i++) { //Affichage des données selon le teddy choisi : de 0 à 4
                 var nameTeddies = document.createTextNode(myJSON[i].name);
                 var priceTeddies = document.createTextNode(myJSON[i].price + " euros");
                 var imageTeddies = myJSON[i].imageUrl;
@@ -12,20 +12,3 @@ fetch("http://localhost:3000/api/teddies")
             }
         });
     })
-
-var style = false;
-document.getElementById("nom_filtre").onclick = function() {
-
-    if (style === false) {
-        document.getElementById("formulaire_filtre").style.display = "block";
-        style = true;
-    }
-    if (style === true) {
-        document.getElementById("formulaire_filtre").style.display = "none";
-        style = false;
-    }
-
-
-
-
-}

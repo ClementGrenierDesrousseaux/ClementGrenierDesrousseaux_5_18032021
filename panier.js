@@ -1,10 +1,10 @@
-var nbLigne = 0
-var tableau = JSON.parse(localStorage.getItem("panier"));
+var tableau = JSON.parse(localStorage.getItem("panier")); //Récupération du localstorage panier
 var priceTableau = [];
 
 
 //Récupération du panier local storage + affichage
 for (let i = 0; i < tableau.length; i++) {
+
     //Création des textNode
     var newName = document.createTextNode(tableau[i].name);
     var newPrice = document.createTextNode(tableau[i].price);
@@ -16,18 +16,6 @@ for (let i = 0; i < tableau.length; i++) {
 
 
     //Création des éléments
-    /*var newTr = document.createElement("tr");
-    document.querySelector("table").appendChild(newTr).setAttribute("id", "produit" + i);
-    var newTd = document.createElement("td");
-    document.getElementById("produit" + i).appendChild(newTd).setAttribute("id", "nom" + i);
-    var newTd = document.createElement("td");
-    document.getElementById("produit" + i).appendChild(newTd).setAttribute("id", "couleur" + i);
-    var newTd = document.createElement("td");
-    document.getElementById("produit" + i).appendChild(newTd).setAttribute("id", "prix" + i);
-    var newTd = document.createElement("td");
-    document.getElementById("produit" + i).appendChild(newTd).setAttribute("id", "quantité" + i);
-    var newTd = document.createElement("td");
-    document.getElementById("produit" + i).appendChild(newTd).setAttribute("id", "totalPriceLine" + i);*/
     var newFig = document.createElement("figure");
     document.getElementById("panier").appendChild(newFig).setAttribute("id", "produit" + i);
     document.getElementById("produit" + i).setAttribute("class", "figure_panier");
@@ -51,10 +39,6 @@ for (let i = 0; i < tableau.length; i++) {
     document.getElementById("qté_supp" + i).appendChild(newP).setAttribute("id", "quantité" + i);
     var newP = document.createElement("p");
     document.getElementById("qté_supp" + i).appendChild(newP).setAttribute("id", "supprimer" + i);
-    //var newDiv = document.createElement("div");
-    //document.getElementById("figcap" + i).appendChild(newDiv).setAttribute("id", "totalPriceLine" + i)
-
-
 
     //Intégration des TextNode dans les éléments créés
     document.getElementById("nom" + i).appendChild(newName);
@@ -63,29 +47,24 @@ for (let i = 0; i < tableau.length; i++) {
     document.getElementById("quantité" + i).appendChild(newCount);
     document.getElementById("supprimer" + i).appendChild(newSupp);
     document.getElementById("image" + i).setAttribute("src", tableau[i].img);
-    //document.getElementById("totalPriceLine" + i).appendChild(totalPriceLine);
 
-    priceTableau.push(priceLine);
+    priceTableau.push(priceLine); //Ajout du prix d'un teddy selon sa quantité dans un tableau prix total
 
 
 }
 
+//Somme du tableau prix total
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 var totalPrice = priceTableau.reduce(reducer);
 var nodeTotalPrice = document.createTextNode(totalPrice + " euros")
-    //document.getElementById("price").appendChild(nodeTotalPrice);
 document.getElementById("montantTotal").insertAdjacentHTML("beforeend", "<strong>" + totalPrice + " euros <strong/>")
 
 
 
 //Confirmation de la commande 
-
-
-
-
 document.getElementById("confirmPanier").onclick = function() {
     var panier = JSON.parse(localStorage.getItem("panier"));
-    var produit = [];
+    var produit = []; //Crée un tableau produit id pour envoyer au back-end
     panier.forEach(element => {
         for (let i = 0; i < element.quantity; i++) {
             produit.push(element.id);
@@ -98,11 +77,12 @@ document.getElementById("confirmPanier").onclick = function() {
     var ville = document.getElementById("city").value;
     var mail = document.getElementById("email").value;
 
-    if (prenom == "" || nom == "" || adresse == "" || ville == "" || mail == "") {
+    if (prenom == "" || nom == "" || adresse == "" || ville == "" || mail == "") { //Si les champs sont vides, un message apparait
         alert("Veuillez remplir tous les champs");
     } else if (!document.getElementById("email").checkValidity()) {
-        alert(document.getElementById("email").validationMessage)
+        alert(document.getElementById("email").validationMessage) //Si le champs email n'est pas valide, un message apparait
     } else {
+        //Création de la donnée à envoyer au back-end
         const url = 'http://localhost:3000/api/teddies/order';
 
         let data = {
@@ -116,6 +96,7 @@ document.getElementById("confirmPanier").onclick = function() {
             products: produit
         }
 
+        //Requête POST pour envoyer la donnée au back-end
         var request = new Request(url, {
             method: "POST",
             body: JSON.stringify(data),
@@ -126,16 +107,12 @@ document.getElementById("confirmPanier").onclick = function() {
             .then(function(response) {
                 var myJSON_promise = response.json();
                 myJSON_promise.then(function(myJSON) {
-                    //console.log(myJSON.orderId)
                     var validation = [myJSON.orderId, totalPrice]
                     localStorage.setItem("validation", JSON.stringify(validation)) //Enregistre l'orderID dans un localStorage
                 })
             })
             .then(setTimeout(function() { window.location.href = "confirmation.html" }, 1000)) //Ouvre la page de confirmation après 1 seconde
     }
-
-
-
 }
 
 
