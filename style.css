@@ -1,0 +1,273 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+
+/*INDEX*/
+
+#css_index html {
+    height: auto;
+    width: auto;
+}
+
+#css_index body {
+    height: auto;
+    width: auto;
+}
+
+#css_index section {
+    height: auto;
+    width: auto;
+}
+
+#css_index article {
+    height: auto;
+    width: auto;
+}
+
+#css_index #filtre {
+    background-color: #e9ecef;
+    display: flex;
+    flex-direction: column;
+}
+
+#css_index #affichageTeddies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#css_index #affichageTeddies a {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 500px;
+    margin-bottom: 50px;
+    text-decoration: none;
+    color: black;
+    border: 2px solid #e9ecef;
+    border-radius: 30px;
+}
+
+#css_index figure {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#css_index img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 28px 28px 0px 0px;
+}
+
+#css_index figcaption {
+    height: 10%;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e9ecef;
+    border-radius: 0px 0px 28px 28px;
+    padding-top: 10px;
+}
+
+#css_index footer a {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    #css_index #affichageTeddies a {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    #css_index #filtre {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    #css_index #affichageTeddies a {
+        height: 250px;
+    }
+}
+
+
+/*PRODUIT*/
+
+#css_produit {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#css_produit article {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+#css_produit figure {
+    display: flex;
+    width: 70%;
+    height: 70%;
+    border: 2px solid #e9ecef;
+    background-color: #e9ecef;
+    border-radius: 30px;
+}
+
+#css_produit figcaption {
+    width: 30%;
+}
+
+#css_produit img {
+    object-fit: cover;
+    width: 70%;
+    border-radius: 28px 0px 0px 28px;
+}
+
+#css_produit footer a {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    #css_produit figure {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 80%;
+        border: 2px solid #e9ecef;
+        background-color: #e9ecef;
+        border-radius: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #css_produit figcaption {
+        height: 30%;
+        width: 100%;
+    }
+    #css_produit img {
+        object-fit: cover;
+        height: 70%;
+        width: 100%;
+        border-radius: 28px 28px 0px 0px;
+    }
+}
+
+
+/*PANIER*/
+
+#css_panier {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#css_panier article {
+    flex-direction: column;
+}
+
+#css_panier .globalTeddy {
+    display: flex;
+    flex-direction: column;
+    background-color: #e9ecef;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#css_panier .couleur_quantity {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#css_panier .subtotal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+#css_panier .name {
+    font-weight: bold;
+}
+
+#css_panier footer {
+    margin-top: 20px;
+}
+
+#css_panier footer a {
+    text-decoration: none;
+    color: white;
+}
+
+#css_panier aside {
+    padding-top: 20px;
+}
+
+#css_panier .champs_formulaire {
+    width: 90%;
+}
+
+
+/*CONFIRMATION*/
+
+#css_confirmation {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#css_confirmation #numCommande {
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+#css_confirmation #texteCommande {
+    display: flex;
+}
+
+#css_confirmation #message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#css_confirmation footer a {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    #css_confirmation #texteCommande {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #css_confirmation #message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

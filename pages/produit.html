@@ -6,27 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon_oriteddies1.png" type="image/png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../favicon_oriteddies1.png" type="image/png">
     <title>OriTeddies</title>
 </head>
 
 <body>
-    <div id="css_index">
+    <div id="css_produit">
         <div class="container-fluid bg-dark">
             <div class="row">
                 <nav class="col navbar navbar-expand-md navbar-dark">
-                    <a class="navbar-brand" href="index.html">OriTeddies</a>
+                    <a class="navbar-brand" href="../index.html">OriTeddies</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
                     <div id="navbarContent" class="collapse navbar-collapse">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Catalogue</a>
+                                <a class="nav-link" href="../index.html">Catalogue</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/panier.html">Mon Panier</a>
+                                <a class="nav-link" href="panier.html">Mon Panier</a>
                             </li>
                         </ul>
                     </div>
@@ -35,61 +35,25 @@
         </div>
 
         <section class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="jumbotron">
-                        <h1>🧸 Bienvenue au paradis des oursons en peluche 🧸</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <aside class="col-12 col-md-2" id="filtre">
-                    <div id="checkbox_color">
-                        <p><u>Couleur :</u></p>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="color"> Tan</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="color"> Chocolate</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="color"> Black</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="color"> White</label>
-                        </div><br>
-                    </div>
+            <article>
+                <figure>
+                    <img src="" alt="" id="imageTeddy">
+                    <figcaption>
+                        <p id="nomTeddy"></p>
+                        <p id="prixTeddy"></p>
+                        <p id="descTeddy"></p>
+                        <select class="custom-select" id="select_color">
+                            <option selected value="0">Choisir une couleur</option>
+                          </select><br><br>
+                        <button id="panier">Ajouter au panier</button>
+                    </figcaption>
+                </figure>
+            </article>
 
-                    <div id="checkbox_color">
-                        <p><u>Prix :</u></p>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="price"> 0€-10€</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="price"> 10€-30€</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="price"> 30€-50€</label>
-                        </div>
-                    </div><br>
 
-                    <div id="checkbox_color">
-                        <p><u>Lot :</u></p>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="lot"> Lot de 1</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="lot"> Lot de 2</label>
-                        </div>
-                    </div>
 
-                </aside>
-                <article class="col-12 col-md-10">
-                    <div id="affichageTeddies">
 
-                    </div>
-                </article>
-            </div>
+
         </section>
 
         <footer class="container-fluid bg-dark text-light pt-4 pb-1">
@@ -122,15 +86,15 @@
                 </div>
             </div>
         </footer>
-
     </div>
+
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="scripts/index.js"></script>
+    <script src="../scripts/produit.js"></script>
 </body>
 
 </html>
