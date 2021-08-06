@@ -55,41 +55,48 @@ affichagePanier();
 
 //Confirmation de la commande 
 document.getElementById("confirmPanier").onclick = function() {
-    var produit = []; //Crée un tableau produit id pour envoyer au back-end
-    tableau.forEach(element => {
-        for (let i = 0; i < element.quantity; i++) {
-            produit.push(element.id);
+
+    if (document.getElementById("firstName").value == "" || document.getElementById("lastName").value == "" || document.getElementById("address").value == "" || document.getElementById("city").value == "" || document.getElementById("email").value == "") {
+        alert("Veuillez remplir tous les champs");
+    } else {
+        var produit = []; //Crée un tableau produit id pour envoyer au back-end
+        tableau.forEach(element => {
+            for (let i = 0; i < element.quantity; i++) {
+                produit.push(element.id);
+            }
+        });
+
+        //Création de la donnée à envoyer au back-end
+        const url = 'http://localhost:3000/api/teddies/order';
+
+        let data = {
+            contact: {
+                firstName: document.getElementById("firstName").value,
+                lastName: document.getElementById("lastName").value,
+                address: document.getElementById("address").value,
+                city: document.getElementById("city").value,
+                email: document.getElementById("email").value
+            },
+            products: produit
         }
-    });
 
-    //Création de la donnée à envoyer au back-end
-    const url = 'http://localhost:3000/api/teddies/order';
+        //Requête POST pour envoyer la donnée au back-end
+        var request = new Request(url, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        });
 
-    let data = {
-        contact: {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            address: document.getElementById("address").value,
-            city: document.getElementById("city").value,
-            email: document.getElementById("email").value
-        },
-        products: produit
+        fetch(request)
+            .then(response => response.json())
+            .then(function(response) {
+                var validation = [response.orderId]
+                localStorage.setItem("validation", JSON.stringify(validation)); //Enregistre l'orderID dans un localStorage
+                window.location.href = "confirmation.html"
+            })
     }
 
-    //Requête POST pour envoyer la donnée au back-end
-    var request = new Request(url, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-type": "application/json; charset=UTF-8" }
-    });
 
-    fetch(request)
-        .then(response => response.json())
-        .then(function(response) {
-            var validation = [response.orderId]
-            localStorage.setItem("validation", JSON.stringify(validation)); //Enregistre l'orderID dans un localStorage
-            window.location.href = "confirmation.html"
-        })
 
     //.then(setTimeout(function() { window.location.href = "confirmation.html" }, 1000)) //Ouvre la page de confirmation après 1 seconde
 }
